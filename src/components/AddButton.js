@@ -1,7 +1,24 @@
-const AddButton = () => {
-  return(
-    <button> + </button>
+import { connect } from "react-redux";
+
+const AddButton = (props) => {
+
+  const handleClick = () => {
+    props.sendAction()
+  }
+
+  return (
+    <button onClick={handleClick}> + </button>
   )
 }
 
-export default AddButton
+const mapDispatchToProps = dispatch => {
+  return {
+    sendAction: () => {
+      dispatch({
+        type: 'add_action'
+      })
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AddButton)

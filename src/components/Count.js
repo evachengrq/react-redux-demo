@@ -1,7 +1,15 @@
-const Count = () => {
+import { connect } from "react-redux";
+
+const Count = (props) => {
   return(
-    <p>1</p>
+    <p>{props.count}</p>
   )
 }
 
-export default Count
+const mapStateToProps = (state) => {
+  console.log(state);
+  return state
+}
+
+export default connect(mapStateToProps)(Count)
+
